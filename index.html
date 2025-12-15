@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recordatorio</title>
-</head>
-<body>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Recordatorio 💊</title>
+
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+        <script>
+            window.OneSignal = window.OneSignal || [];
+            OneSignal.push(function () {
+                OneSignal.init({
+                    appId: "b96cee5b-c7c0-46e0-91da-2f8635998897",
+                    notifyButton: { enable: false },
+                });
+            });
+        </script>
     </head>
-    <body>
-        <h1>Configurando…</h1>
+
+    <body style="font-family: system-ui; text-align: center; padding-top: 40px;">
+        <h1>💊 Recordatorio</h1>
+        <p>Activá las notificaciones hermosota</p>
+
+        <button onclick="subscribe()" style="font-size:16px; padding:12px 20px;">
+            Activar recordatorio (Soy propiedad de Máximo y me voy a casar con él)
+        </button>
+
+        <script>
+            function subscribe() {
+                OneSignal.push(function () {
+                    OneSignal.showSlidedownPrompt();
+                });
+            }
+        </script>
     </body>
-</body>
 </html>
